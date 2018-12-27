@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!-- Template Name: Clip-One - Responsive Admin Template build with Twitter Bootstrap 3.x Version: 1.4 Author: ClipTheme
+[if IE 8]><html class="ie8 no-js" lang="en"><![endif]
+[if IE 9]><html class="ie9 no-js" lang="en"><![endif]
+[if !IE]> -->
+<html lang="en" class="no-js" xmlns:th="http://www.thymeleaf.org">
+	<!-- <![endif] -->
+	<!-- start: HEAD -->
+	<head>
+		<title>Clip-One - Responsive Admin Template</title>
+		<!-- start: META -->
+		<meta charset="utf-8" />
+		<!-- [if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif] -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta content="" name="description" />
+		<meta content="" name="author" />
+		<!-- end: META -->
+		<!-- start: MAIN CSS -->
+		<link rel="stylesheet" th:href="@{/resources/assets/css/main.css}" />
+		<link rel="stylesheet" th:href="@{/resource/assets/plugins/bootstrap/css/bootstrap.min.css}" />
+		<link rel="stylesheet" th:href="@{/resource/assets/plugins/font-awesome/css/font-awesome.min.css}" />
+		<link rel="stylesheet" th:href="@{/resource/assets/fonts/style.css}" />
+		<link rel="stylesheet" th:href="@{/resource/assets/css/main.css}" />
+		<link rel="stylesheet" th:href="@{/resource/assets/css/main-responsive.css}" />
+		<link rel="stylesheet" th:href="@{/resource/assets/plugins/iCheck/skins/all.css}" />
+		<link rel="stylesheet" th:href="@{/resource/assets/plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css}" />
+		<link rel="stylesheet" th:href="@{/resource/assets/plugins/perfect-scrollbar/src/perfect-scrollbar.css}" />
+		<link rel="stylesheet"
+	th:href="@{/resources/assets/css/theme_light.css}" type="text/css"
+	id="skin_color" />
+		<link rel="stylesheet" th:href="@{/resources/assets/css/print.css}"
+	type="text/css" media="print" />		<!-- [if IE 7]> -->
+		<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome-ie7.min.css" />
+		<!-- <[endif] -->
+		<!-- end: MAIN CSS -->
+		<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+		 <link rel="stylesheet" th:href="@{/resource/assets/plugins/summernote/build/summernote.css}" />
+		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<link rel="shortcut icon" th:href="@{/resources/favicon.ico}" /> 
+	</head>
+	<!-- end: HEAD -->
+	<!-- start: BODY -->
+	<body> 
+
+<div class="container" style="min-height: 760px;">
+
+
+
+	<div class="row">
+
+		<!-- start: PAGE TITLE & BREADCRUMB -->
+		<ol class="breadcrumb">
+			<li><i class="clip-home-3"></i> <a href="/FARMMGR"> Home </a></li>
+			<li class="active">Add User</li>
+			<li class="search-box">
+				<form class="sidebar-search">
+					<div class="form-group">
+						<input type="text" placeholder="Start Searching..." />
+						<button class="submit">
+							<i class="clip-search-3"></i>
+						</button>
+					</div>
+				</form>
+			</li>
+		</ol>
+		<div class="page-header">
+			<h1>
+				Dashboard <small>ADD USER </small>
+			</h1>
+		</div>
+		<!-- end: PAGE TITLE & BREADCRUMB -->
+
+
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<i class="fa fa-external-link-square"></i> Add User
+					<div class="panel-tools">
+						<a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+						</a> <a class="btn btn-xs btn-link panel-config" href="#panel-config"
+							data-toggle="modal"> <i class="fa fa-wrench"></i>
+						</a> <a class="btn btn-xs btn-link panel-refresh" href="#"> <i
+							class="fa fa-refresh"></i>
+						</a> <a class="btn btn-xs btn-link panel-expand" href="#"> <i
+							class="fa fa-resize-full"></i>
+						</a> <a class="btn btn-xs btn-link panel-close" href="#"> <i
+							class="fa fa-times"></i>
+						</a>
+					</div>
+				</div>
+				<div class="panel-body">
+
+					<form role="form" id = "form" class="form-horizontal" method="POST" 
+					th:action="@{/save}"	th:object="${userForm}">
+					
+				
+					
+						<div class="form-group">
+							<label class="col-sm-2 control-label">First Name</label>
+							<div class="col-sm-4">
+								<input type="text" placeholder="First Name"
+									id="form-field-11" th:field="*{firstName}" required="required"
+									class="form-control" />
+							</div>
+
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Last Name</label>
+							<div class="col-sm-4">
+								<input type="text" placeholder="Last Name" required="required"
+								 id="form-field-11"
+									th:field="*{lastName}" class="form-control" />
+							</div>
+
+						</div>
+						
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Email	</label>
+							<div class="col-sm-4">
+								<input type="email" placeholder="Username" id="email" name = "email"
+									th:field="*{userName}" class="form-control" />
+							</div>
+
+						</div>
+						
+						<div class="form-group">
+							<label class="col-sm-2 control-label">SMS Limit</label>
+							<div class="col-sm-4">
+								<input type="text" placeholder="SMS Limit" id="form-field-11"
+									th:field="*{smsLimit}" class="form-control" />
+							</div>
+
+						</div>
+						
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Role</label>
+							<div class="col-sm-4">
+								<select id="form-field-11" th:field = "*{role}" name = "Title" required="required"
+									class="form-control">
+										  <option value="">select role</option>
+										  <option value="emailsms">emailsms</option>				
+										  <option value="email">email</option>		
+										  <option value="sms">sms</option>				  
+									</select>
+							</div>
+
+						</div>
+						
+						<!-- <div class="form-group">
+							<label class="col-sm-2 control-label">Status</label>
+							<div class="col-sm-4">
+								<select id="form-field-11" th:field = "*{status}" name = "Title" required="required"
+									class="form-control">
+										  <option value="">Select Status </option>
+										  <option value="active">active</option>				
+										  <option value="inactive">inactive</option>						  
+									</select>
+							</div>
+
+						</div>
+ -->						
+
+						<div class="clearfix form-actions">
+							<div class="col-md-offset-3 col-md-9">
+								<button class="btn btn-primary" type="submit">
+									<i class="ace-icon fa fa-check bigger-110"></i> save
+								</button>
+
+
+
+								<!-- <button class="btn btn-danger" type="reset">
+						<i class="ace-icon fa fa-undo bigger-110"></i> Reset
+					</button> -->
+							</div>
+						</div>
+					</form>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- <script th:src="@{/resources/assets/plugins/less/less-1.5.0.min.js}"></script> -->
+<script th:src="@{/resources/assets/plugins/jQuery-lib/2.0.3/jquery.min.js}"></script>
+		<!--<![endif]-->
+		<script th:src="@{/resources/assets/plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js}"></script>
+		<script th:src="@{/resources/assets/plugins/bootstrap/js/bootstrap.min.js}"></script>
+		<script th:src="@{/resources/assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js}"></script>
+		<script th:src="@{/resources/assets/plugins/blockUI/jquery.blockUI.js}"></script>
+		<script th:src="@{/resources/assets/plugins/iCheck/jquery.icheck.min.js}"></script>
+		<script th:src="@{/resources/assets/plugins/perfect-scrollbar/src/jquery.mousewheel.js}"></script>
+		<script th:src="@{/resources/assets/plugins/perfect-scrollbar/src/perfect-scrollbar.js}"></script>
+		<script th:src="@{/resources/assets/plugins/less/less-1.5.0.min.js}"></script>
+		<script th:src="@{/resources/assets/plugins/jquery-cookie/jquery.cookie.js}"></script>
+		<script th:src="@{/resources/assets/plugins/bootstrap-colorpalette/js/bootstrap-colorpalette.js}"></script>
+		<script th:src="@{/resources/assets/js/main.js}"></script>
+		<!-- end: MAIN JAVASCRIPTS -->
+		<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<script th:src="@{/resources/assets/plugins/jquery-validation/dist/jquery.validate.min.js}"></script>
+		<script th:src="@{/resources/assets/plugins/summernote/build/summernote.min.js}"></script>
+		<script th:src="@{/resources/assets/plugins/ckeditor/ckeditor.js}"></script>
+		<script th:src="@{/resources/assets/plugins/ckeditor/adapters/jquery.js}"></script>
+		<script th:src="@{/resources/assets/js/form-validation.js}"></script>
+		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<script>
+			jQuery(document).ready(function() {
+				Main.init();
+				FormValidator.init();
+			});
+		</script>
+	</body>
+	<!-- end: BODY -->
+</html>

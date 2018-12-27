@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+ <session-factory> 
+ <mapping class="org.calminfotech.email.model.Client" />
+  <mapping class="org.calminfotech.email.model.BroadCastAll" />
+ <mapping class="org.calminfotech.user.models.User" />
+  <mapping class="org.calminfotech.user.models.UserSession" />
+  <mapping class="org.calminfotech.email.model.SetEmail" />
+  <mapping class="org.calminfotech.email.model.ActivityLogger" />
+  <mapping class="org.calminfotech.email.model.Financial_Institute" />
+  <mapping class="org.calminfotech.email.model.StockBroadCast" ></mapping>
+   <mapping class="org.calminfotech.email.model.ClientType" />
+   <mapping class="org.calminfotech.email.model.NetWorth" />
+   <mapping class="org.calminfotech.email.model.Loan" />
+   <mapping class="org.calminfotech.email.model.Deposit" />
+   <mapping class="org.calminfotech.email.model.SmsActivityLogger" />
+   <mapping class="org.calminfotech.email.model.SetSMS" />
+    <mapping class="org.calminfotech.email.model.SettingsAuditSMS" />
+    <mapping class="org.calminfotech.email.model.SettingsAuditEmail" />
+    <mapping class="org.calminfotech.email.model.News" />
+    <mapping class="org.calminfotech.email.model.NewsOwner" />
+    
+ </session-factory>
+</hibernate-configuration>

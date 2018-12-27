@@ -1,0 +1,109 @@
+<div class="container" style="min-height: 760px;">
+
+
+
+	<div class="row">
+
+		<!-- start: PAGE TITLE & BREADCRUMB -->
+		<ol class="breadcrumb">
+			<li><i class="clip-home-3"></i> <a th:href="@{/index}"> Home </a></li>
+			<li class="active">Set SMS</li>
+			<li class="search-box">
+				<form class="sidebar-search">
+					<div class="form-group">
+						<input type="text" placeholder="Start Searching..." />
+						<button class="submit">
+							<i class="clip-search-3"></i>
+						</button>
+					</div>
+				</form>
+			</li>
+		</ol>
+		<div class="page-header">
+			<!-- <h1>
+				Dashboard <small>overview &amp; stats </small>
+			</h1> -->
+		</div>
+		<!-- end: PAGE TITLE & BREADCRUMB -->
+
+
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<i class="fa fa-external-link-square"></i>
+					<div class="panel-tools">
+						<a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+						</a> <a class="btn btn-xs btn-link panel-config" href="#panel-config"
+							data-toggle="modal"> <i class="fa fa-wrench"></i>
+						</a> <a class="btn btn-xs btn-link panel-refresh" href="#"> <i
+							class="fa fa-refresh"></i>
+						</a> <a class="btn btn-xs btn-link panel-expand" href="#"> <i
+							class="fa fa-resize-full"></i>
+						</a> <a class="btn btn-xs btn-link panel-close" href="#"> <i
+							class="fa fa-times"></i>
+						</a>
+					</div>
+				</div>
+				<div class="panel-body">
+				
+				 <!-- <div>
+									<a th:href="@{/addsmsvendor}" 
+										class="label label-sm btn-primary"> Add Vendor </a>&nbsp;&nbsp;
+										<a th:href="@{/listsmslog}"
+									class="label label-sm label-success">View Logs</a>
+								</div>  -->
+								<div>&nbsp;</div>
+					<table
+						class="table table-striped table-bordered table-hover table-full-width"
+						id="sample_1">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Vendor</th>
+								<th>Url</th>
+								<th>Username</th>
+								<th>Source</th>
+								<th>Dlr</th>
+								<th>Type</th>
+								<th>Port</th>
+								<th>Status</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="s : ${setsms}">
+								<td th:text="${s.Id}"></td>
+								<td th:text="${s.vendor}"></td>
+								<td th:text="${s.url}"></td>
+								<td th:text="${s.userName}"></td>
+								<td th:text="${s.source}"></td>
+								<td th:text="${s.dlr}"></td>
+								<td th:text="${s.type}"></td>
+								<td th:text="${s.port}"></td>
+								<td th:text="${s.status}"></td>
+									<td><a th:href="@{/showEdt/{id}(id=${s.Id}) }"
+									class="btn btn-xs btn-teal tooltips" data-placement="top"
+									data-original-title="Edit"> <i class="fa fa-edit"></i>
+								</a></td>
+								
+								<!-- <td><a class="btn btn-xs btn-primary tooltips"
+												title="view customer details"
+												th:href="@{/view/{id}(id=${customer.id}) }">
+													<i class="fa fa-eye"></i>
+											</a></td> -->
+											
+							</tr>
+						</tbody>
+					</table>
+					
+					  
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

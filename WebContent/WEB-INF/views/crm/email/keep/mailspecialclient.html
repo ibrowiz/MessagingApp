@@ -1,0 +1,97 @@
+<div class="container" style="min-height: 760px;">
+
+
+
+	<div class="row">
+
+		<!-- start: PAGE TITLE & BREADCRUMB -->
+		<ol class="breadcrumb">
+			<li><i class="clip-home-3"></i> <a th:href="@{/index}"> Home </a></li>
+			<li class="active">mail special client</li>
+			<li class="search-box">
+				<form class="sidebar-search">
+					<div class="form-group">
+						<input type="text" placeholder="Start Searching..." />
+						<button class="submit">
+							<i class="clip-search-3"></i>
+						</button>
+					</div>
+				</form>
+			</li>
+		</ol>
+		<div class="page-header">
+			<!-- <h1>
+				Dashboard <small>ADD CUSTOMER </small>
+			</h1> -->
+		</div>
+		<!-- end: PAGE TITLE & BREADCRUMB -->
+
+
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<i class="fa fa-external-link-square"></i> <!-- Add Customer -->
+					<div class="panel-tools">
+						<a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+						</a> <a class="btn btn-xs btn-link panel-config" href="#panel-config"
+							data-toggle="modal"> <i class="fa fa-wrench"></i>
+						</a> <a class="btn btn-xs btn-link panel-refresh" href="#"> <i
+							class="fa fa-refresh"></i>
+						</a> <a class="btn btn-xs btn-link panel-expand" href="#"> <i
+							class="fa fa-resize-full"></i>
+						</a> <a class="btn btn-xs btn-link panel-close" href="#"> <i
+							class="fa fa-times"></i>
+						</a>
+					</div>
+				</div>
+				<div class="panel-body">
+
+					<form role="broadCastForm" class="form-horizontal" method="POST"
+						 th:object="${broadCastForm}">
+						
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Subject</label>
+							<div class="col-sm-4">
+								<input type="text" placeholder="" id="form-field-11"
+									th:field="*{subject}" class="form-control" />
+						</div>
+
+					</div>
+						
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Message</label>
+							<div class="col-sm-4">
+							<textarea rows="10" cols="45" placeholder="" id="form-field-11" th:field="*{message}" required="required">Enter text here...
+							</textarea>
+							</div>
+							
+							</div>
+						
+							
+
+						<div class="clearfix form-actions">
+							<div class="col-md-offset-3 col-md-9">
+								<button class="btn btn-primary" type="submit">
+									<i class="ace-icon fa fa-check bigger-110"></i> SEND
+								</button>
+
+
+
+								<!-- <button class="btn btn-danger" type="reset">
+						<i class="ace-icon fa fa-undo bigger-110"></i> Reset
+					</button> -->
+							</div>
+						</div>
+					</form>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

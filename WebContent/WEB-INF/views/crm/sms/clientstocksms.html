@@ -1,0 +1,262 @@
+<div class="container" style="min-height: 760px;">
+
+
+
+	<div class="row">
+
+		<!-- start: PAGE TITLE & BREADCRUMB -->
+		<ol class="breadcrumb">
+			<li><i class="clip-home-3"></i> <a th:href="@{/index}"> Home
+			</a></li>
+			<li class="active">Broadcast </li>
+			<li class="search-box">
+				<form class="sidebar-search">
+					<div class="form-group">
+						<input type="text" placeholder="Start Searching..." />
+						<button class="submit">
+							<i class="clip-search-3"></i>
+						</button>
+					</div>
+				</form>
+			</li>
+		</ol>
+		<div class="page-header">
+		SMS Sent&nbsp;&nbsp;<span th:text="${smsSent}">SMS Limit</span>/
+								<span th:text="${smsLimit}">SMS Limit</span>
+			<!-- <h1>
+				Dashboard <small>ADD CUSTOMER </small>
+			</h1> -->
+		</div>
+		<!-- end: PAGE TITLE & BREADCRUMB -->
+
+
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<i class="fa fa-external-link-square"></i>
+					<!-- Add Customer -->
+					<div class="panel-tools">
+						<a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+						</a> <a class="btn btn-xs btn-link panel-config" href="#panel-config"
+							data-toggle="modal"> <i class="fa fa-wrench"></i>
+						</a> <a class="btn btn-xs btn-link panel-refresh" href="#"> <i
+							class="fa fa-refresh"></i>
+						</a> <a class="btn btn-xs btn-link panel-expand" href="#"> <i
+							class="fa fa-resize-full"></i>
+						</a> <a class="btn btn-xs btn-link panel-close" href="#"> <i
+							class="fa fa-times"></i>
+						</a>
+					</div>
+				</div>
+				<div class="panel-body">
+					<b><span style = "color:blue;" th:text="${successMsg}"></span></b>
+					<form role="form" class="form-horizontal" method="POST"
+						enctype="multipart/form-data" th:action="@{/sendstockbroadcastsms}"
+						onsubmit="return validation();" th:object="${smsStockForm}">
+						
+						<div class="alert alert-block alert-info fade in">
+										<button data-dismiss="alert" class="close" type="button">
+											&times;
+										</button>
+										<h4 class="alert-heading"><i class="fa fa-info-circle"></i> Info!</h4>
+										<p>
+											Use [fname] to represent first name
+										</p>
+										<p>
+											[Lname] for last name
+										</p>
+										
+										<p>
+											Example - Hello [fname] [Lname], wish you a happy holiday.
+										</p>
+									</div>	
+						
+						<!-- <div>
+							<div>
+								<input type="radio" name="choice" value="multirecipient" id=""
+									th:field="*{choice}" /> <label for="">Send To</label>
+
+								<div class="reveal-if-active">
+									<label for="">Recipient(s)</label> <input type="text"
+										id="searchKeywords" name="" class="require-if-active"
+										th:field="*{to}" data-require-pair="#choice-animals-dogs" />Separate
+									by comma for more than one recipient
+
+								</div>
+							</div>
+
+							<div>
+								<input type="radio" name="choice" value="csvupload" id=""
+									th:field="*{choice}" /> <label for="">Upload Address
+									File</label>
+
+								<div class="reveal-if-active">
+									<label for="">Supply File</label> <input type="file"
+										id="which-cat" name="which-cat" class=""
+										th:field="*{attachFile}"
+										data-require-pair="#choice-animals-cats" />Max Upload size
+									20MB
+								</div>
+							</div>
+
+							<div>
+								<input type="radio" name="choice" value="fromview"
+									id="choice-animals-cats" /> <label for="">Legacy
+									Clients</label>
+
+								<div class="reveal-if-active"></div>
+							</div>
+						</div>
+ -->
+ 						<div class="form-group">
+							<label class="col-sm-2 control-label"> Stock </label>
+							<div class="col-sm-4">
+								<select th:field = "*{stockCode}" class="form-control">
+										  <option value="0">Select Stock</option>
+										  <option th:each = "c : ${instituteList}" 
+										  		  th:value = "${c.stockCode}"  
+										  		  th:text= "${c.stockName}"> </option>										 										  
+									</select>
+							</div>
+
+						</div>
+ 						
+
+						<div class="form-group">
+							
+							<label class="col-sm-2 control-label">Message</label>
+							<div class="col-sm-4">
+								No more than 160 characters<textarea rows="15" cols="60" placeholder="" name="editor2"
+									id="editor2" th:field="*{message}">Enter text here...
+								</textarea><p>
+   												<span id="remaining">160</span>
+												<span id="messages">/1</span>
+											</p>
+							</div>
+						</div>
+
+						 
+						<div class="clearfix form-actions">
+							<div class="col-md-offset-3 col-md-9">
+								<input value="Send" id="submit_btn" class="btn btn-primary"
+									type="submit" /> <span id="wait_tip" style="display: none;"><img
+									th:src="@{/resources/images/ajax-loader.gif}" id="loading_img" />
+									Please wait...</span>
+							</div>
+						</div>
+						<!--  <div class="clearfix form-actions">
+							<div class="col-md-offset-3 col-md-9">
+								<button class="btn btn-primary" id="submit_btn" type="submit">
+									<i class="ace-icon fa fa-check bigger-110"></i> SEND
+								</button><span id="wait_tip" style="display:none;"><img th:src="@{/resources/images/ajax-loader.gif}"
+           id="loading_img"/> Please wait...</span>
+							</div>
+						</div> -->
+					</form>
+
+					 <script>
+					 $(document).ready(function(){
+						    var $remaining = $('#remaining'),
+						        $messages = $remaining.next();
+
+						    $('#editor2').keyup(function(){
+						        var chars = this.value.length,
+						            messages = Math.ceil(chars / 160),
+						            remaining = messages * 160 - (chars % (messages * 160) || messages * 160);
+
+						        $remaining.text(remaining);
+						        $messages.text('/'+messages);
+						    });
+						});
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- <script type="text/javascript">
+$.getScript('//cdnjs.cloudflare.com/ajax/libs/summernote/0.5.1/summernote.min.js',function(){
+  $('#summernote').summernote();
+});
+</script> -->
+
+<script type="text/javascript">
+	/* $.getScript('//cdnjs.cloudflare.com/ajax/libs/summernote/0.5.1/summernote.min.js',function(){
+	 $('#summernote').summernote();
+	 }); */
+	/* function createNote() {
+	 alert( 'page created' );        
+	 // use ajax to store new page, and update the UI accordingly
+	 showEditNotePopup(); 
+	 }
+	 */
+
+	function getId(id) {
+		return document.getElementById(id);
+	}
+	function validation() {
+		getId("submit_btn").style.display = "none";
+		getId("wait_tip").style.display = "";
+		//alert('Message sent');
+		return true;
+
+	}
+	function validateForm(form) {
+		var validation = true;
+		validation = createNote(form);
+		validation = validation(form);
+		return validation;
+	}
+
+	window.addEventListener('load', function() {
+		/// you could improve the way you target your form, this is just a quick eg.
+		var form;
+		form = document.getElementsByTagName('form')[0];
+		form.addEventListener('submit', validation);
+		form.addEventListener('submit', createNote);
+	});
+
+	$("#FilUploader").change(
+			function() {
+				var fileExtension = [ 'jpeg', 'jpg', 'png', 'gif', 'bmp',
+						'pdf', 'doc', 'docx', 'xls' ];
+				if ($.inArray($(this).val().split('.').pop().toLowerCase(),
+						fileExtension) == -1) {
+					alert("Only formats are allowed : "
+							+ fileExtension.join(', '));
+					$("#FilUploader").val("");
+				}
+			});
+	$("#which-cat").change(
+			function() {
+				var fileExtension = [ 'csv' ];
+				if ($.inArray($(this).val().split('.').pop().toLowerCase(),
+						fileExtension) == -1) {
+					alert("Only formats are allowed : "
+							+ fileExtension.join(', '));
+					$("#which-cat").val("");
+				}
+			});
+	$(function() {
+		$("#FilUploader,#which-cat").change(function() {
+
+			//because this is single file upload I use only first index
+			var f = this.files[0]
+
+			//here I CHECK if the FILE SIZE is bigger than 8 MB (numbers below are in bytes)
+			if (f.size > 10485760 || f.fileSize > 10485760) {
+				//show an alert to the user
+				alert("Allowed file size exceeded. (Max. 10 MB)")
+
+				//reset file upload control
+				this.value = null;
+			}
+		})
+	});
+</script>

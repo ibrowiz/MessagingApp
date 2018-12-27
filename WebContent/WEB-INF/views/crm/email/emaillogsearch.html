@@ -1,0 +1,144 @@
+<div class="container">
+	<!-- start: PAGE HEADER -->
+	<div class="row">
+		<div class="col-sm-12">
+			<!-- start: STYLE SELECTOR BOX -->
+			<!-- end: STYLE SELECTOR BOX -->
+			<!-- start: PAGE TITLE & BREADCRUMB -->
+			<ol class="breadcrumb">
+				<li><i class="clip-home-3"></i> <a th:href="@{/home}"> Home
+				</a></li>
+				<li class="active">Search FeeLog</li>
+				<li class="search-box">
+					<form class="sidebar-search">
+						<div class="form-group">
+							<input type="text" placeholder="Start Searching..." />
+							<button class="submit">
+								<i class="clip-search-3"></i>
+							</button>
+						</div>
+					</form>
+				</li>
+			</ol>
+			<div class="page-header">
+				<!-- <h1>
+					Customers <small>Overview</small>
+				</h1> -->
+				
+			</div>
+			
+			
+			
+			
+			
+			<!-- end: PAGE TITLE & BREADCRUMB -->
+		</div>
+	</div>
+	
+	<div class="row">
+
+		<div class="col-md-12">
+			<!-- start: DYNAMIC TABLE PANEL -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<i class="fa fa-external-link-square"></i> Fees Search
+					<div class="panel-tools">
+						<a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+						</a> <a class="btn btn-xs btn-link panel-config" href="#panel-config"
+							data-toggle="modal"> <i class="fa fa-wrench"></i>
+						</a> <a class="btn btn-xs btn-link panel-refresh" href="#"> <i
+							class="fa fa-refresh"></i>
+						</a> <a class="btn btn-xs btn-link panel-expand" href="#"> <i
+							class="fa fa-resize-full"></i>
+						</a> <a class="btn btn-xs btn-link panel-close" href="#"> <i
+							class="fa fa-times"></i>
+						</a>
+					</div>
+				</div>
+				<div class="panel-body">
+				
+					<form role="Form" class="form-horizontal" method="POST"
+					th:object="${emailLogForm}">
+
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Start Date</label>
+						<div class="col-sm-4">
+							<input type="date" placeholder="" id="form-field-11"
+								th:field="*{from}" class="form-control" />
+						</div>
+
+					</div>
+
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">End Date</label>
+						<div class="col-sm-4">
+							<input type="date" placeholder="" id="form-field-11"
+								th:field="*{to}" class="form-control" />
+						</div>
+
+					</div>
+
+
+
+					<div class="clearfix form-actions">
+						<div class="col-md-offset-3 col-md-9">
+							<button class="btn btn-primary" type="submit">
+								<i class="ace-icon fa fa-check bigger-110"></i> search
+							</button>
+
+
+
+							<!-- <button class="btn btn-danger" type="reset">
+						<i class="ace-icon fa fa-undo bigger-110"></i> Reset
+					</button> -->
+						</div>
+					</div>
+				</form>
+
+
+				</div>
+			</div>
+			<!-- end: DYNAMIC TABLE PANEL -->
+		</div>
+	</div>
+	
+	
+	
+	
+	
+	
+	<!-- end: PAGE HEADER -->
+	<!-- start: PAGE CONTENT -->
+	<!-- <div class="row">
+		<div class="col-md-12">
+			start: DYNAMIC TABLE PANEL
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<i class="fa fa-external-link-square"></i> Dynamic Table
+					<div class="panel-tools">
+						<a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+						</a> <a class="btn btn-xs btn-link panel-config" href="#panel-config"
+							data-toggle="modal"> <i class="fa fa-wrench"></i>
+						</a> <a class="btn btn-xs btn-link panel-refresh" href="#"> <i
+							class="fa fa-refresh"></i>
+						</a> <a class="btn btn-xs btn-link panel-expand" href="#"> <i
+							class="fa fa-resize-full"></i>
+						</a> <a class="btn btn-xs btn-link panel-close" href="#"> <i
+							class="fa fa-times"></i>
+						</a>
+					</div>
+				</div>
+				<div class="panel-body">
+					
+				</div>
+			</div>
+			end: DYNAMIC TABLE PANEL
+		</div>
+	</div> -->
+
+
+
+	<!-- end: PAGE CONTENT-->
+</div>

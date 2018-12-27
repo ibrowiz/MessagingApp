@@ -1,0 +1,122 @@
+<div class="container" style="min-height: 760px;">
+
+
+
+	<div class="row">
+
+		<!-- start: PAGE TITLE & BREADCRUMB -->
+		<ol class="breadcrumb">
+			<li><i class="clip-home-3"></i> <a th:href="@{/index}"> Home </a></li>
+			<li class="active">Broadcast mail</li>
+			<li class="search-box">
+				<form class="sidebar-search">
+					<div class="form-group">
+						<input type="text" placeholder="Start Searching..." />
+						<button class="submit">
+							<i class="clip-search-3"></i>
+						</button>
+					</div>
+				</form>
+			</li>
+		</ol>
+		<div class="page-header">
+			<!-- <h1>
+				Dashboard <small>ADD CUSTOMER </small>
+			</h1> -->
+		</div>
+		<!-- end: PAGE TITLE & BREADCRUMB -->
+
+
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<i class="fa fa-external-link-square"></i> <!-- Add Customer -->
+					<div class="panel-tools">
+						<a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+						</a> <a class="btn btn-xs btn-link panel-config" href="#panel-config"
+							data-toggle="modal"> <i class="fa fa-wrench"></i>
+						</a> <a class="btn btn-xs btn-link panel-refresh" href="#"> <i
+							class="fa fa-refresh"></i>
+						</a> <a class="btn btn-xs btn-link panel-expand" href="#"> <i
+							class="fa fa-resize-full"></i>
+						</a> <a class="btn btn-xs btn-link panel-close" href="#"> <i
+							class="fa fa-times"></i>
+						</a>
+					</div>
+				</div>
+				<div class="panel-body">
+
+					<form role="broadCastAtchForm" class="form-horizontal" method="POST" enctype="multipart/form-data"
+						 th:object="${broadCastAtchForm}">
+						 
+		<div>
+    <div>
+      <input type="radio" name="choice" value = "multirecipient" id="choice-animals-dogs" />
+      <label for="">Send To</label>
+    
+      <div class="reveal-if-active">
+        <label for="">Recipient(s)</label>
+        <input type="text" id="which-dog" name="which-dog" class="require-if-active" th:field="*{to}" data-require-pair="#choice-animals-dogs" />
+    				
+      </div>
+    </div>
+    
+    <div>
+      <input type="radio" name="choice" value = "csvupload" id="choice-animals-cats" />
+      <label for="">Upload Address File</label>
+    
+      <div class="reveal-if-active">
+        <label for="">Supply File</label>
+        <input type="file" id="which-cat" name="which-cat" class="require-if-active" th:field="*{attachFile}" data-require-pair="#choice-animals-cats" /><input type="submit" value="Upload" />
+      </div>
+    </div>
+    
+     <div>
+      <input type="radio" name="choice" value = "fromview" id="choice-animals-cats" />
+      <label for="">Yanchi clients</label>
+    
+      <div class="reveal-if-active">
+       
+      </div>
+    </div> 
+  </div>
+  
+ <div class="form-group">
+							<label class="col-sm-2 control-label">Subject</label>
+							<div class="col-sm-4">
+								<input type="text" placeholder="" id="form-field-11"
+									th:field="*{subject}" class="form-control" />
+						</div>
+
+					</div>
+						
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Message</label>
+							<div class="col-sm-4">
+							<textarea rows="10" cols="45" placeholder="" id="form-field-11" th:field="*{message}">Enter text here...
+							</textarea>
+							</div>
+							
+							</div>
+ 						
+						
+						 <div class="clearfix form-actions">
+							<div class="col-md-offset-3 col-md-9">
+								<button class="btn btn-primary" type="submit">
+									<i class="ace-icon fa fa-check bigger-110"></i> SUBMIT
+								</button>
+							</div>
+						</div>
+					</form>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
